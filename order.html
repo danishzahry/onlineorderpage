@@ -1,0 +1,313 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Online Order Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-family: system-ui, Arial, sans-serif; margin: 2rem; }
+      form { max-width: 520px; }
+      .field { margin-bottom: 1rem; }
+      label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+      input, textarea { width: 100%; padding: 0.6rem; border: 1px solid #ccc; border-radius: 6px; }
+      .actions { margin-top: 1.25rem; }
+      button { padding: 0.6rem 1rem; border: none; border-radius: 6px; background: #2563eb; color: #fff; cursor: pointer; }
+      button:disabled { background: #9ca3af; cursor: not-allowed; }
+      .hint { font-size: 0.9rem; color: #6b7280; }
+    
+  body {
+    background-color: #1a1a1a !important; /* Rich Dark Background */
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #e5e7eb;
+    margin: 0;
+    padding: 40px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    background: #262626; /* Slightly lighter dark for the card */
+    max-width: 600px;
+    width: 100%;
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid #3f3f46;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  h1 {
+    font-family: "Georgia", serif;
+    font-size: 2.5rem;
+    color: #fbbf24; /* Golden Accent */
+    margin-bottom: 2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    font-family: "Georgia", serif;
+    font-size: 1.5rem;
+    color: #fbbf24;
+    border-bottom: 1px solid #fbbf24;
+    padding-bottom: 10px;
+    margin-top: 2rem;
+  }
+
+  fieldset {
+    border: 1px solid #52525b;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  legend {
+    color: #a1a1aa;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 10px;
+  }
+
+  /* Input Styles */
+  label {
+    font-size: 0.95rem;
+    color: #d1d5db;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea {
+    background-color: #171717;
+    border: 1px solid #404040;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #fbbf24;
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+  }
+
+  /* Menu Item Alignment Fix */
+  /* This overrides your inline 'text-align: center' for a cleaner list */
+  fieldset label[style*="text-align: center"] {
+    display: inline-block !important;
+    text-align: left !important;
+    width: 240px;
+    font-weight: 500;
+  }
+
+  input[type="checkbox"], 
+  input[type="radio"] {
+    accent-color: #fbbf24; /* Matches the theme gold */
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  input[type="number"] {
+    width: 60px;
+    background: #333;
+    border: none;
+    text-align: center;
+  }
+
+  /* Button Styling */
+  button {
+    width: 100%;
+    background: #fbbf24;
+    color: #000;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  button:hover {
+    background: #f59e0b;
+    transform: translateY(-2px);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+
+  /* Image & Hints */
+  img {
+    border: 4px solid #333;
+    border-radius: 15px;
+    transition: transform 0.3s;
+  }
+
+  img:hover {
+    transform: scale(1.02);
+  }
+
+  .hint {
+    color: #71717a;
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+
+  ::placeholder {
+    color: #52525b;
+  }
+    </style>
+  </head>
+  <body style="background-color: lightblue;">
+
+      <h1 style="text-align: center;">Order now</h1>
+      
+      <fieldset>
+    <legend>Customer Information</legend>
+
+    <form action="receipt.php" method="post">
+      <div class="field">
+        <label for="customerName">Customer Name</label>
+        <input
+          type="text"
+          id="customerName" 
+          name="customerName"
+          placeholder="e.g., Kassim Selamat"
+          autocomplete="name"
+          required
+          minlength="2"
+        />
+      </div>
+
+      <div class="field">
+        <label for="homeAddress">Home Address</label>
+        <textarea
+          id="homeAddress"
+          name="homeAddress"
+          placeholder="Street, City, State, Postcode"
+          rows="3"
+          autocomplete="street-address"
+          required
+        ></textarea>
+      </div>
+
+      <div class="field">
+        <label for="emailAddress">Email Address</label>
+        <input
+          type="email"
+          id="emailAddress"
+          name="emailAddress"
+          placeholder="name@example.com"
+          autocomplete="email"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="phoneNumber">Phone Number</label>
+        <input
+          type="tel"
+          id="phoneNumber"
+          name="phoneNumber"
+          placeholder="+60 12-345 6789"
+          autocomplete="tel"
+          required
+          pattern="^\+?\d[\d\s-]{6,}$"
+        />
+
+        <div class="hint">Use digits, spaces, or dashes. Example: +60 12-345 6789</div>
+      </div>
+
+  </fieldset>
+
+  <img src="menu.jpg" alt="Menu Image" style="max-width: 40%; height: auto; margin: 2rem 0; display: block; margin-left: auto; margin-right: auto;" />
+
+  <!-- menu  -->
+  <fieldset>
+    <legend>Make Your Order</legend>
+    <h2 style="text-align: center;"> Burger </h2>
+
+      <!-- Item a -->
+    <label style="text-align: center;"> Classic Burger (RM10.00)</label> 
+      <input type="checkbox" name="items[]" value="a"> 
+      Quantity: <input type="number" name="aqty" min="1" max="10" value="1"> <br><br>
+      <!-- Item b --> 
+      <label style="text-align: center;"> Organic Sirloin Burger (RM12.00) </label> 
+      <input type="checkbox" name="items[]" value="b">  
+      Quantity: <input type="number" name="bqty" min="1" max="10" value="1"> <br><br>
+      <!-- Item c --> 
+      <label style="text-align: center;"> Chilli Cheeseburger (RM11.00) </label> 
+      <input type="checkbox" name="items[]" value="c"> 
+      Quantity: <input type="number" name="cqty" min="1" max="10" value="1"> <br><br>
+      <!-- Item d -->
+      <label style="text-align: center;"> Hickory Burger (RM10.00)</label> 
+      <input type="checkbox" name="items[]" value="d"> 
+      Quantity: <input type="number" name="dqty" min="1" max="10" value="1"> <br><br>
+      <!-- Item e -->
+      <label style="text-align: center;"> Chicken Club Burger (RM11.00)</label> 
+      <input type="checkbox" name="items[]" value="e"> 
+      Quantity: <input type="number" name="eqty" min="1" max="10" value="1"> <br><br>
+      <!-- Item f -->
+      <label style="text-align: center;"> Bison Burger (RM12.00)</label> 
+      <input type="checkbox" name="items[]" value="f"> 
+      Quantity: <input type="number" name="fqty" min="1" max="10" value="1"> <br><br>
+      <!-- Item g --> 
+          <label style="text-align: center;"> Vegetarian Burger (RM10.00)</label> 
+      <input type="checkbox" name="items[]" value="g"> 
+      Quantity: <input type="number" name="gqty" min="1" max="10" value="1"> <br><br>
+  
+      <h2 style="text-align: center;"> Beverage </h2>
+          
+      <!-- Beverage h -->
+      <label style="text-align: center;"> Soda Can (RM2.00) </label> 
+      <input type="checkbox" name="items[]" value="h"> 
+      Quantity: <input type="number" name="hqty" min="1" max="10" value="1"> <br><br>
+      <!-- Beverage i -->
+      <label style="text-align: center;"> Juice (RM3.00)</label>
+      <input type="checkbox" name="items[]" value="i"> 
+      Quantity: <input type="number" name="iqty" min="1" max="10" value="1"> <br><br>
+      <!-- Beverage j -->
+      <label style="text-align: center;"> Iced Tea (RM3.00)</label> 
+      <input type="checkbox" name="items[]" value="j"> 
+      Quantity: <input type="number" name="jqty" min="1" max="10" value="1"> <br><br>
+      <!-- Beverage k -->
+      <label style="text-align: center;"> Water Bottle (RM1.00)</label> 
+      <input type="checkbox" name="items[]" value="k"> 
+      Quantity: <input type="number" name="kqty" min="1" max="10" value="1"> <br><br>
+
+    
+  <label style="text-align: center;"> Self Pickup </label> 
+  <input type="radio" name="option" value="SELFPICKUP"> 
+  <label style="text-align: center;"> Delivery (RM5.00)</label> 
+  <input type="radio" name="option" value="DELIVERY"> <br>
+
+  </fieldset>
+
+  <fieldset>
+    <legend>Payment Method</legend>
+  <label style="text-align: center;"> Cash </label> 
+  <input type="radio" name="Payment" value="cash"> 
+  <label style="text-align: center;"> Online Banking </label> 
+  <input type="radio" name="Payment" value="Online"> <br>
+  </fieldset>
+
+      <div class="actions">
+        <button type="submit">Submit Order</button>
+      </div>
+    </form>
+
+
+    
+  </body>
+  </html>
