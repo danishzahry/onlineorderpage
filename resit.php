@@ -1,7 +1,7 @@
 <?php
 // receipt.php - simple order receipt generator
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: onlineorder.html');
+    header('Location: order.html');
     exit;
 }
 
@@ -96,7 +96,7 @@ $time = date('Y-m-d H:i:s');
 
     <?php if (empty($orderItems)): ?>
       <p><em>No items were selected. Please return to the order page to place an order.</em></p>
-      <a class="btn" href="onlineorder.html">Back to Order</a>
+      <a class="btn" href="order.html">Back to Order</a>
     <?php else: ?>
       <table>
         <thead>
@@ -123,7 +123,7 @@ $time = date('Y-m-d H:i:s');
 
       <div class="actions">
         <a class="btn btn-print" href="#" onclick="window.print();return false;">Print Receipt</a>
-        <a class="btn" href="onlineorder.html">Place Another Order</a>
+        <a class="btn" href="order.html">Place Another Order</a>
       </div>
     <?php endif; ?>
   </section>
